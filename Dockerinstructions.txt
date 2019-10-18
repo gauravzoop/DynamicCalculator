@@ -1,0 +1,31 @@
+Dockerfile ::
+
+FROM tomcat:9-jdk11
+ADD MyServletApp.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD chmod +x /usr/local/tomcat/bin/catalina.sh
+CMD ["catalina.sh", "run"]
+
+docker build -t myservletapp .
+
+Successfully built b74be7a47e43
+Successfully tagged myservletapp:latest
+
+docker run -it -d -p 8081:8080 myservletapp:latest
+
+To check if it started in port ::
+
+sudo netstat -anp|grep 8081
+
+docker ps -a
+
+git instructions ::
+
+git clone https://github.com/gauravzoop/DynamicCalculator.git
+
+git add DynamicCalculator
+
+git commit -m "Add DynamicCalculator file"
+
+git push origin master
+
